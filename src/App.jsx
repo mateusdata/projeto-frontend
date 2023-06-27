@@ -3,11 +3,6 @@ import axios from "axios";
 
 function App() {
   const [users, setUser] = useState([]);
-  const x  = {
-    preco:10, cor:"blue",
-    preco:100, cor:"blue",
-    preco:20, cor:"red",
-  }
 useEffect(()=>{
   axios.get("http://localhost:3001/").then((respose)=>{
     console.log(respose);
