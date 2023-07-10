@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2? família= Inter:peso@100;200;400 &family= Oxygen:wght@300 & family= Poppins:wght@200 & family= Roboto+Mono:ital,wght@ 0,300;1,300 & display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+    font-family: 'Oxygen', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+}

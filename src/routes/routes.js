@@ -4,6 +4,7 @@ import { AuthProvider, Contexto } from "../../src/context/context";
 import { HashLoader } from "react-spinners";
 import Login from "../pages/login/login";
 import Home from "../pages/home/home";
+import Adm from "../pages/private/adm";
 
 const Rotas = () => {
 
@@ -28,6 +29,7 @@ const Rotas = () => {
           <Route exact path="/login" element={ <Login/>} />
           <Route exact path="/" element={<Private> <Home/> </Private>} />
           <Route exact path="/home2" element={<> <Home/> </>} />
+          <Route exact path="/adm" element={<> <Adm/> </>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

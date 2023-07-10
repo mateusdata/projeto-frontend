@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import { Contexto } from "../../context/context";
+import axiosInstase from "../../components/axios/axiosInstase";
+import Table from "../../components/tables/table";
 export default function Login() {
     
     const[email, setEmail] = useState("");
@@ -13,15 +14,15 @@ export default function Login() {
         e?.preventDefault();
        
         if(email && password){
-            axios.post("http://localhost:3001/login",{
+            axiosInstase.post("/login",{
                 email,
                 password
             }).then((response)=>{
                 console.log(response);
                 setErro(response?.data?.erro)
-                if(response.data.status===200){
+                if(response.status===200){
                     alert("autenticado")
-                    login(email)
+                    login(email, response.data.profile)
                 }
             }).catch((erro)=>{
                 console.log(erro);
@@ -106,6 +107,7 @@ export default function Login() {
               </a>
             </p>
           </div>
+          
         </div>
       </>
     )

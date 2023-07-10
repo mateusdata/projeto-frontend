@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Contexto = createContext();
@@ -17,20 +17,19 @@ export const AuthProvider = ({ children }) => {
         setLoad(false);
     }, []);
 
-    const login = (email) => {
-
+    const login = (email, tipo) => {
+        alert(tipo)
         const logarUser = {
-            email,
+            email, tipo
         };
         if (email) {
             localStorage.setItem("usuario", JSON.stringify(logarUser));
         }
         ;
-        if (email) {
-            setUser(email);
-            setEmailAddress(email);
-            navigate("/");
-        }
+        setUser(logarUser);
+        setEmailAddress(email);
+        tipo == 0 ? navigate("/") : navigate("/adm");
+
     };
     const logout = () => {
         navigate("/login");
