@@ -20,6 +20,7 @@ const Table = () => {
             //alert(response.data)
           }).catch((error) => {
             console.error("error");
+            setLoading(false)
           });
        
     },[])
