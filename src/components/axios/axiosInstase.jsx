@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 const axiosInstase = axios.create({
-    baseURL:"http://localhost:3003"
+    baseURL:"https://api-projeto-beryl.vercel.app/"
 })
 export default axiosInstase;
