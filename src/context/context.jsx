@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [load, setLoad] = useState(true);
     const [emailAddress, setEmailAddress] = useState("");
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const navigate = useNavigate();
 
     useEffect(() => {
