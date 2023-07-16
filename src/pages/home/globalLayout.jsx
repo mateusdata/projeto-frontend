@@ -11,11 +11,11 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Painel', href: 'adm', current: true },
+  { name: 'Treino', href: 'treino', current: false },
+  { name: true ? 'Alunos': null, href: '', current: false },
+  { name: 'Adimin', href: '/adm/alunos', current: false },
+  { name: 'Fatura', href: '#', current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -27,7 +27,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function App() {
+export default function GlobalLayout({children}) {
   return (
     <>
       {/*
@@ -195,8 +195,8 @@ export default function App() {
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8  min-h-full h-[100%] break-words">
 
             {/* Your content */}
-           <Banner/>
-            <Table/>
+     
+           {children}
           </div>
         </main>
       </div>

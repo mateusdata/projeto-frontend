@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [load, setLoad] = useState(true);
     const [emailAddress, setEmailAddress] = useState("");
+    const [open, setOpen] = useState(true)
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export const AuthProvider = ({ children }) => {
         ;
         setUser(logarUser);
         setEmailAddress(email);
-        tipo == 0 ? navigate("/") : navigate("/adm");
+        tipo === 0 ? navigate("/") : navigate("/adm");
 
     };
     const logout = () => {
@@ -48,6 +49,8 @@ export const AuthProvider = ({ children }) => {
                 logout,
                 load,
                 emailAddress,
+                open, 
+                setOpen
             }}
         >
             {children}

@@ -3,8 +3,9 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, Contexto } from "../../src/context/context";
 import { HashLoader } from "react-spinners";
 import Login from "../pages/login/login";
-import Home from "../pages/home/home";
-import Adm from "../pages/private/adm";
+import Adm from "../pages/private/adm/adm";
+import Training from "../pages/public/training/training";
+import ManageStudents from "../pages/private/alunos";
 
 const Rotas = () => {
 
@@ -27,9 +28,10 @@ const Rotas = () => {
       <AuthProvider>
         <Routes>
           <Route exact path="/login" element={ <Login/>} />
-          <Route exact path="/" element={<Private> <Home/> </Private>} />
-          <Route exact path="/home2" element={<> <Home/> </>} />
+          <Route exact path="/" element={<Private> <Adm/> </Private>} />
           <Route exact path="/adm" element={<> <Adm/> </>} />
+          <Route exact path="/treino" element={<> <Training /> </>} />
+          <Route exact path="/adm/alunos" element={<> <ManageStudents /> </>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
