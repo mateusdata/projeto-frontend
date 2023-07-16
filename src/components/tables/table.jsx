@@ -3,15 +3,20 @@ import { useState } from 'react';
 import axiosInstase from '../axios/axiosInstase';
 import { Contexto } from '../../context/context';
 import DropDownTable from '../dropDown/dropDownTable';
+import Skeleton from '../skelector/skelector';
 
 const Table = () => {
   const {setOpen, open}  = useContext(Contexto);
     const [student, setStudent] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{
         
         axiosInstase.get("getstudent").then((response) => {
             console.log(response.data);
             setStudent(response.data);
+            setTimeout(() => {
+                setLoading(false)
+            }, 500);
             //alert(response.data)
           }).catch((error) => {
             console.error("error");
@@ -20,10 +25,14 @@ const Table = () => {
     },[])
   return (
     <>
+    
     <section class="bg-[#FFFFFF] p-3 sm:p-5">
     <div class="mx-auto max-w-screen-xl px-4 lg:px-12 font-">
-       
-        <div class="bg-white  relative shadow-md sm:rounded-lg overflow-hidden border">
+   
+        <div class="bg-white  relative shadow-md sm:rounded-lg overflow-hidden border min-h-[500px]">
+      { loading && <Skeleton/>}
+            { !loading  &&
+            <>
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
                     <form class="flex items-center">
@@ -139,6 +148,9 @@ const Table = () => {
             
             </div>
             
+            </>
+
+            }
         </div>
     </div>
     </section>
