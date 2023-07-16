@@ -14,7 +14,7 @@ const Formulario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(user.email && user.password && user.nome){
-      axiosInstase.put("/admin/student").then((response)=>{
+      axiosInstase.post("/admin/student").then((response)=>{
         console.log(response);
         return;
       }).catch((erro)=>console.log("erro"));
