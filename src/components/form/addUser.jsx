@@ -14,18 +14,21 @@ const Formulario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.email && user.password && user.nome) {
-      axiosInstase.put("/admin/student", {
+      axiosInstase.post("/adm/student", {
         nome:user.nome,
         email:user.email,
         password:user.password
       }).then((response) => {
         console.log(response);
          alert("Usuarios criado com sucesso!!!");
-        return;
-      }).catch((erro) => console.log("erro"));
+        
+      }).catch((erro) => {
+        alert("Não é posivel criar usuarios");
+        console.log("erro")
+      });
 
     }
-    alert("Não é posivel criar usuarios");
+    
   };
 
   return (
